@@ -6,12 +6,13 @@ metadata:
     app: nginx
 spec:
   rules:
-    http:
+   - host: test.com
+     http:
       paths:
-      - backend:
+      - path: /
+        pathType: Prefix
+        backend:
           service:
-            name: nginx-service
+            name: test
             port:
               number: 80
-        path: /
-        pathType: Prefix
